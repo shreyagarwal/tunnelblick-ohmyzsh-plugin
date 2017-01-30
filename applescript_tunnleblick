@@ -1,0 +1,15 @@
+set tunnelconfig to system attribute "tunnelconfig" -- env variable
+tell application "Tunnelblick"
+	connect tunnelconfig
+	get state of first configuration where name = tunnelconfig
+
+    delay 1
+    tell application "System Events" to key code 5 using {control down, command down} -- control-command-g is used in keystroke to put passowrd. You can use Hammerspoon or equivalent
+    delay 1
+    
+    tell application "System Events" to keystroke return -- coonect or OK buton
+    delay 2
+
+end tell
+
+
